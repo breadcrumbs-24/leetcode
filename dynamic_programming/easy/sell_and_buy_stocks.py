@@ -30,6 +30,8 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         max_return = 0
         min_price = float("inf")
+        # Ya que visitamos los valores de izquierda a derecha, el minimo, seria el minimo en el time
+        # Y los habre comparado a todos en el tiempo
         for price in prices:
             if price < min_price:
                 min_price = price
