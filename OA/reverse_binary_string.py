@@ -34,4 +34,40 @@ S = "00110101"
 T = "10101100"
 """
 
-00110101
+"""
+What I can keep on place?
+Every operation removes one character and move it to the end the remaining characters matter
+operations = len(S) - longestMatch
+"""
+
+def min_operations_to_reverse(S):
+    # Esto se usa para revertir el array
+    T = S[::-1]
+    # ponemos la longitud de S
+    n = len(S)
+    
+    # Apuntamos a 0
+    j = 0 # pointer for T
+
+    # vamos recorriendo S 1 por 1 para ver cuando matchean T
+    for i in range(n):
+        # Si matchea T movemos apuntador de T 
+        if S[i] == T[j]:
+            j += 1
+    # Al final es len(S) - los que matchea con T
+    return n - j
+
+
+
+
+def min_operations_to_reverse(S):
+    T = [::-1]
+    n = len(S)
+
+    j = 0
+
+    for i in range(n):
+        if S[i] == T[j]:
+            j += 1
+    
+    return n - j

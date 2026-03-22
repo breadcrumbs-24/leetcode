@@ -33,16 +33,25 @@ Mental trigger: Longest/shortest substring -> sliding window
 """
 
 def lengthOfLongestSubstring(s):
+    # Empezamos creando un set
     char_set = set()
+    # apuntador left en 0
     l = 0
+    # apuntador max longitud en 0
     max_len = 0
-
+    # para r in range de longitud de s para recorrer indexes
     for r in range(len(s)):
+        # Si esta s[r] en el char_set
         while s[r] in char_set:
+            #char_set.remove(s[l])
+            # eliminamos el de la izquierda porque en el char_set no estan en orden
+            # pero como no se repiten, solo lo eliminas y ya, y aumentas el aputnador a la izquierda
             char_set.remove(s[l])
             l += 1
-
+        # como ya sale del while que no esta
+        # entonces ya lo agregas
         char_set.add(s[r])
+        # checas el maximo lenght
         max_len = max(max_len, r-l+1)
     
     return max_len
